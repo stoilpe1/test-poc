@@ -1,8 +1,4 @@
-## Welcome to GitHub Pages
 
-You can use the [editor on GitHub](https://github.com/stoilpe1/test-poc/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
 ### Markdown
 
@@ -26,12 +22,22 @@ Syntax highlighted code block
 [Link](url) and ![Image](src)
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
 
-### Jekyll Themes
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/stoilpe1/test-poc/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+Project instructions:
 
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+1. Create new Maven project.
+2. Add Dependencies:
+	2.1 maven-resources-plugin;
+	2.2 testng;
+	2.3 selenium chrome driver;
+	2.4 selenium java from http://docs.seleniumhq.org/download/maven.jsp
+3. Add plugins:
+	3.1 maven-compiler-plugin;
+	3.2 maven-surefire-plugin.
+4. Make sure the ChromeDriver is installed properly (local or maven dependency?).
+5. Do a mvn -install in the Project directory to fix any plugin bugs.
+6. mvn clean test command.
+7. Configure TestNG plugin.
+8. Configure TestNG test suite
+9. Make sure testng pluggin settings in POM.xml file - dependency properties are set as COMPILE scope instead of TEST.

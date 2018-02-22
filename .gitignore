@@ -1,0 +1,39 @@
+# Project Specifics #
+/target/
+log/
+/test-output/
+.settings
+.classpath
+.project
+
+# Compiled source #
+*.com
+*.exe
+*.dll
+
+# Log file #
+*.log
+
+# Package Files #
+*.jar
+*.war
+*.ear
+*.zip
+*.tar
+*.gz
+*.7z
+*.dmg
+*.tar.gz
+*.rar
+
+# virtual machine crash logs #
+hs_err_pid*
+
+# OS generated files #
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db

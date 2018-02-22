@@ -1,0 +1,149 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.testPocJavaMavenJenkins.test</groupId>
+  <artifactId>TestPocSeleniumJavaAutomation</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>TestPocJava</name>
+  <description>Test automation framework Proof of Concept using:
+	Selenium Java;
+	Jenkins;
+	Maven.
+  </description>
+  
+
+  
+  <dependencies>
+  
+  	<!-- Dependencies for Selenium: -->
+  	
+	<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+	<dependency>
+	    <groupId>org.seleniumhq.selenium</groupId>
+	    <artifactId>selenium-java</artifactId>
+	    <version>3.9.1</version>
+	</dependency>
+  	
+  	<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-chrome-driver -->
+	<dependency>
+	    <groupId>org.seleniumhq.selenium</groupId>
+	    <artifactId>selenium-chrome-driver</artifactId>
+	    <version>3.9.1</version>
+	</dependency>	
+	
+	<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-chrome-driver -->
+	<!-- <dependency>
+	    <groupId>org.seleniumhq.selenium</groupId>
+	    <artifactId>selenium-chrome-driver</artifactId>
+	    <version>2.53.1</version>
+	</dependency> -->
+	
+	<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-firefox-driver -->
+	<dependency>
+	    <groupId>org.seleniumhq.selenium</groupId>
+	    <artifactId>selenium-firefox-driver</artifactId>
+	    <version>3.9.1</version>
+	</dependency>
+	  	 
+	<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-ie-driver -->
+	<dependency>
+	    <groupId>org.seleniumhq.selenium</groupId>
+	    <artifactId>selenium-ie-driver</artifactId>
+	    <version>3.9.1</version>
+	</dependency>  
+  
+	<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-edge-driver -->
+	<dependency>
+	    <groupId>org.seleniumhq.selenium</groupId>
+	    <artifactId>selenium-edge-driver</artifactId>
+	    <version>3.9.1</version>
+	</dependency>	
+	
+	<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-remote-driver -->
+	<dependency>
+	    <groupId>org.seleniumhq.selenium</groupId>
+	    <artifactId>selenium-remote-driver</artifactId>
+	    <version>3.9.1</version>
+	</dependency>
+		
+	<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-htmlunit-driver -->
+	<dependency>
+	    <groupId>org.seleniumhq.selenium</groupId>
+	    <artifactId>selenium-htmlunit-driver</artifactId>
+	    <version>2.52.0</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/com.github.detro.ghostdriver/phantomjsdriver -->
+	<dependency>
+	    <groupId>com.github.detro.ghostdriver</groupId>
+	    <artifactId>phantomjsdriver</artifactId>
+	    <version>1.1.0</version>
+	</dependency>
+		
+			 
+	
+  	<!-- Other dependencies: -->
+  	
+  	<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-resources-plugin -->
+	<!-- this was added manually, try to remove it and use 2.4 if needed -->
+	<dependency>
+	    <groupId>org.apache.maven.plugins</groupId>
+	    <artifactId>maven-resources-plugin</artifactId>
+	    <version>3.0.2</version>
+	</dependency> 
+  
+  	<!-- https://mvnrepository.com/artifact/org.testng/testng -->
+	<dependency>
+	    <groupId>org.testng</groupId>
+	    <artifactId>testng</artifactId>
+	    <version>6.13.1</version>
+	</dependency>	
+	
+	<!-- this is for using csv files for Data Provider -->
+	<!-- https://mvnrepository.com/artifact/com.opencsv/opencsv -->
+	<dependency>
+	    <groupId>com.opencsv</groupId>
+	    <artifactId>opencsv</artifactId>
+	    <version>4.1</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/log4j/log4j -->
+	<dependency>
+	    <groupId>log4j</groupId>
+	    <artifactId>log4j</artifactId>
+	    <version>1.2.17</version>
+	</dependency>
+		
+	
+  </dependencies>
+  
+  
+  <build>
+  
+  	<plugins>
+  	  
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.20.1</version>
+        <configuration>
+         <suiteXmlFiles>
+          <!--  -->
+          <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
+         </suiteXmlFiles>
+        </configuration>
+      </plugin>
+      
+      <plugin>
+      	<groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.7.0</version>
+        <configuration>
+         <source>1.8</source> <!-- source is Java Version 1.8 -->
+         <target>1.8</target> <!-- target is Java Version 1.8 -->
+        </configuration>
+      </plugin>
+      
+    </plugins>
+  
+  </build>
+</project>

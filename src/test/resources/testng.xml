@@ -1,0 +1,126 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+  
+<suite name="firstTestSuite" parallel="tests" thread-count="2" preserve-order="false">
+	<listeners>
+		<listener class-name="com.testPoc.base.TestListener"></listener>
+	</listeners>
+
+	<test name="LoginTest-FF"> <!-- FF for Firefox -->
+		<parameter name="browser"  value="firefox"/>
+		<groups>
+			<run>
+				<!-- this is to make FIREFOX exclude any negative tests 
+				and just run the positive ones -->
+				<exclude name="negative"></exclude>
+				<exclude name="broken"></exclude>
+			</run>
+		</groups>
+		<classes>
+			<class name="com.testPoc.LoginTest">
+			</class>
+		</classes>
+	</test>
+	
+	<test name="LoginTest-CH"> <!-- CH for Chrome -->
+		<parameter name="browser"  value="chrome"/>
+		<groups>
+			<run>
+				<exclude name="broken"></exclude>
+			</run>
+		</groups>
+		<classes>
+			<class name="com.testPoc.LoginTest">
+			</class>
+		</classes>
+	</test>	
+	
+<!-- this is currently not working properly 	
+	<test name="LoginTest-EE"> EE for Edge browser
+		<parameter name="browser"  value="edge"/>
+		<groups>
+			<run>
+				<exclude name="broken"></exclude>
+			</run>
+		</groups>
+		<classes>
+			<class name="com.testPoc.LoginTest">
+			</class>
+		</classes>
+	</test>		 -->
+	
+<!-- 	<test name="LoginTest-IE"> IE for Internet Explorer
+		<parameter name="browser"  value="ie"/>
+		<groups>
+			<run>
+				<exclude name="broken"></exclude>
+			</run>
+		</groups>
+		<classes>
+			<class name="com.testPoc.LoginTest">
+			</class>
+		</classes>
+	</test>		 -->
+	
+<!-- 	<test name="LoginTest-HT"> HT for HtmlUnitDriver (headless)
+		<parameter name="browser"  value="html"/>
+		<groups>
+			<run>
+				<exclude name="broken"></exclude>
+			</run>
+		</groups>
+		<classes>
+			<class name="com.testPoc.LoginTest">
+			</class>
+		</classes>
+	</test>		 -->
+	
+<!-- 	<test name="LoginTest-PH"> PH for PhantomJS (headless)
+		<parameter name="browser"  value="phantom"/>
+		<groups>
+			<run>
+				<exclude name="broken"></exclude>
+			</run>
+		</groups>
+		<classes>
+			<class name="com.testPoc.LoginTest">
+			</class>
+		</classes>
+	</test>	 -->		
+	
+	<!-- 
+	<test name="FirstTest" >
+		<classes>
+			<class name="com.testPoc.FirstTest">
+			</class>
+		</classes>
+	</test>
+
+	
+	<test name="SecondTest" >
+		<classes>
+			<class name="com.testPoc.SecondTest">
+			</class>
+		</classes>
+	</test>
+	 -->
+  
+</suite>
+
+<!-- example can be found in: 
+
+http://testng.org/doc/documentation-main.html
+
+section testng.xml
+
+aslo to exclude or include tests:
+
+  <classes>
+    <class name="com.testPoc.FirstTest">
+      <methods>
+        <include name=".*enabledTestMethod.*"/>
+        <exclude name="secondTestMethod"/>
+      </methods>
+     </class>
+  </classes>
+
+ -->
