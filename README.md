@@ -1,47 +1,32 @@
+# Test Proof of Concept project
 
+### Framework built on Selenium Java, TestNG, Maven
 
-### Markdown
+## Prerequisites:
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+1. Install Java and configure it
+2. Install Maven and configure it
 
-```markdown
-Syntax highlighted code block
+## Installation:
 
-# Header 1
-## Header 2
-### Header 3
+1. **Copy** repo
+2. Go to **src/main/resources** and add **WebDriver** instances from the following locations:
+2.1 ChromeDriver (for Chrome browser) at [ChromeDriver archive](https://chromedriver.storage.googleapis.com/index.html)
+*Latest version is always prefered*
+*Latest version used in project = v2.35 32bit*
+2.2 GeckoDriver (for Firefox browser) at [GeckoDriver archive](https://github.com/mozilla/geckodriver/releases)
+*Latest version is always prefered*
+*Latest version used in project = v0.19.1 64bit*
 
-- Bulleted
-- List
+## Run tests:
 
-1. Numbered
-2. List
+### Tests can be run by executing pom.xml of the project:
 
-**Bold** and _Italic_ and `Code` text
+1. Open terminal and go to project directory where pom.xml is located
+2. To execute test suite run command "mvn clean install"
 
-[Link](url) and ![Image](src)
-```
+## Notes:
 
-
-
-Project instructions:
-
-1. Create new Maven project.
-2. Add Dependencies:
-	2.1 maven-resources-plugin;
-	2.2 testng;
-	2.3 selenium chrome driver;
-	2.4 selenium java from http://docs.seleniumhq.org/download/maven.jsp
-3. Add plugins:
-	3.1 maven-compiler-plugin;
-	3.2 maven-surefire-plugin.
-4. Make sure the ChromeDriver is installed properly (local or maven dependency?).
-5. Do a mvn -install in the Project directory to fix any plugin bugs.
-6. mvn clean test command.
-7. Configure TestNG plugin.
-8. Configure TestNG test suite
-9. Make sure testng pluggin settings in POM.xml file - dependency properties are set as COMPILE scope instead of TEST.
-
-# Project Setup:
-
-1. 
+1. Make sure Java path is configured properly
+2. Make sure Maven path is configure properly
+3. Make sure browser binaries are configured properly in order for the webdriver isntances to execute without errors
