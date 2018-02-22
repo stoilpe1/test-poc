@@ -41,3 +41,7 @@ Project instructions:
 7. Configure TestNG plugin.
 8. Configure TestNG test suite
 9. Make sure testng pluggin settings in POM.xml file - dependency properties are set as COMPILE scope instead of TEST.
+
+# Project Setup:
+
+1. 
