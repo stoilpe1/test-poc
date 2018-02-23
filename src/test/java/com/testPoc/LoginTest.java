@@ -12,17 +12,23 @@ import com.testPoc.base.CsvDataProvider;
 
 public class LoginTest extends BaseTest {
     
-    @Test(priority = 1, groups = { "positive" })
-    public void positiveLoginTest() throws Exception {
+    @Test(dataProvider = "CsvDataProvider", dataProviderClass = CsvDataProvider.class, priority = 1, groups = { "positive" })
+    public void positiveLoginTest(Map<String, String> testData) throws Exception {
         LoginPage loginPage = new LoginPage(driver, log);
         String expectedPageTitle = "Create Profile";
         String expectedCreateYourProfileMessage = "Create your profile, find your next position.";
+        String testNumber = testData.get("no");
+        String email = testData.get("email");
+        String password = testData.get("password");
+        String description = testData.get("description");
+        
+        log.info("Test No #" + testNumber + " for " + description + "\nWhere:\nEmail: " + email + "\nPassword: " + password);
         
         // Go to DICE url
         loginPage.openLoginPage();
 
         // Set login information (username + password)
-        loginPage.fillUpEmailAndPassword("tpoctest@yahoo.com", "KLjgyjsdgyuwqehSAUIhiudh27868uiuhJKH@28288+____asd");
+        loginPage.fillUpEmailAndPassword(email, password);
 
         // Click Sign In button and wait for Profile page to load
         ProfilePage profilePage = loginPage.clickSignInButton();
@@ -42,8 +48,9 @@ public class LoginTest extends BaseTest {
         Assert.assertTrue(profilePage.isCorrectMessageDisplayed(expectedCreateYourProfileMessage), "Create your profile message is not correct.");
     }
     
-    @Test(dataProvider = "CsvDataProvider", dataProviderClass = CsvDataProvider.class, priority = 2, groups = { "negative", "broken" })
+    @Test(dataProvider = "CsvDataProvider", dataProviderClass = CsvDataProvider.class, priority = 2, groups = { "negative"})
     public void negativeLoginTest(Map<String, String> testData) throws Exception {
+        LoginPage loginPage = new LoginPage(driver, log);
         String expectedErrorMessage = "Email and/or password incorrect.";
         String testNumber = testData.get("no");
         String email = testData.get("email");
@@ -51,8 +58,6 @@ public class LoginTest extends BaseTest {
         String description = testData.get("description");
         
         log.info("Test No #" + testNumber + " for " + description + "\nWhere:\nEmail: " + email + "\nPassword: " + password);
-        
-        LoginPage loginPage = new LoginPage(driver, log);
         
         // Go to DICE url
         loginPage.openLoginPage();

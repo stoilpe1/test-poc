@@ -1,0 +1,6 @@
+WebDriver versions tested:
+- ChromeDriver = 2.9 32bit* - this crashes currently
+- ChromeDriver = 2.35 32bit - tested and recommended
+- GeckoDriver = 0.19.1 64bit - tested and recommended
+- IE Driver = 3.8.0 32bit - this crashes currently
+- Edge Driver = v4.15063 - this crashes currently
