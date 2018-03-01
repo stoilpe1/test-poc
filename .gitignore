@@ -13,7 +13,7 @@ log/
 
 # Log files #
 *.log
-*headless_screenshot*.png
+*test_screenshot*.png
 
 # Package Files #
 *.jar
