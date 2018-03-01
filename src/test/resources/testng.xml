@@ -34,6 +34,32 @@
 		</classes>
 	</test>	
 	
+	<test name="LoginTest-CHH"> <!-- CHH for Chrome Headless -->
+		<parameter name="browser"  value="chrome-headless"/>
+		<groups>
+			<run>
+				<exclude name="broken"></exclude>
+			</run>
+		</groups>
+		<classes>
+			<class name="com.testPoc.LoginTest">
+			</class>
+		</classes>
+	</test>	
+	
+	<test name="LoginTest-FFH"> <!-- FFH for Firefox Headless -->
+		<parameter name="browser"  value="firefox-headless"/>
+		<groups>
+			<run>
+				<exclude name="broken"></exclude>
+			</run>
+		</groups>
+		<classes>
+			<class name="com.testPoc.LoginTest">
+			</class>
+		</classes>
+	</test>		
+	
 <!-- this is currently not working properly 	
 	<test name="LoginTest-EE"> EE for Edge browser
 		<parameter name="browser"  value="edge"/>

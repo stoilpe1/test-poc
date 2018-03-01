@@ -3,6 +3,7 @@ package com.testPoc.base;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -13,6 +14,10 @@ public class BaseTest {
     // and variables
     protected WebDriver driver;
     protected Logger log;
+    // make screenshotAlwaysOn = true if you want to debug
+    // headless or just take screenshots on every driver quit
+    // default value is false
+    protected Boolean screenshotAlwaysOn = false;
     
     @BeforeClass(alwaysRun = true)
     protected void setUpClass(ITestContext ctx) {
@@ -31,8 +36,15 @@ public class BaseTest {
         driver = BrowserFactory.getDriver(browser, log);        
     }
 
+    @SuppressWarnings("static-access")
     @AfterMethod(alwaysRun = true)
-    protected void methodTearDown() {
+    protected void methodTearDown(ITestContext ctx, ITestResult tr) {
+        // take a screenshot either if test fails
+        // or if screenshotAlwaysOn is TRUE
+        if(tr.FAILURE==tr.getStatus() || screenshotAlwaysOn==true) {
+            Screenshot.getScreenshot(ctx, driver);
+        }        
+        
         // Quit driver
         log.info("Method Tear Down");
         driver.quit();

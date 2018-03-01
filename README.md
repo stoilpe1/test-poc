@@ -12,12 +12,11 @@
 
 1. **Copy** repo
 2. Go to **src/main/resources** and add **WebDriver** instances from the following locations:
-- ChromeDriver (for Chrome browser) at [ChromeDriver archive](https://chromedriver.storage.googleapis.com/index.html)
-*Latest version is always prefered*
-*Latest version tested in project = v2.35 32bit*
+- ChromeDriver (for Chrome browser) at [ChromeDriver archive](https://chromedriver.storage.googleapis.com/index.html)<p>*Latest version is always prefered*
+*Latest version tested in project = v2.35 32bit*</p>
 - GeckoDriver (for Firefox browser) at [GeckoDriver archive](https://github.com/mozilla/geckodriver/releases)
-*Latest version is always prefered*
-*Latest version tested in project = v0.19.1 64bit*
+<p>*Latest version is always prefered*
+*Latest version tested in project = v0.19.1 64bit*</p>
 
 ## Run tests:
 

@@ -11,8 +11,9 @@ log/
 *.exe
 *.dll
 
-# Log file #
+# Log files #
 *.log
+*headless_screenshot*.png
 
 # Package Files #
 *.jar

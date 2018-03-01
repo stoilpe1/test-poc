@@ -1,10 +1,12 @@
 package com.testPoc.base;
 
 import org.apache.log4j.Logger;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 
 public class BrowserFactory {
 
@@ -30,6 +32,9 @@ public class BrowserFactory {
                 // include Linux specific webdriver instructions
                 System.setProperty("webdriver.gecko.driver", "src/main/resources/"); 
             }
+            // to clean up console from firefox logs:
+            /*System.setProperty(FirefoxDriver.SystemProperty.DRIVER_USE_MARIONETTE,"true");
+            System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE,"C:\\temp\\logs.txt");*/
             driver = new FirefoxDriver();
             driver.manage().window().maximize(); // remove if not needed
             break;
@@ -68,6 +73,47 @@ public class BrowserFactory {
             System.setProperty("phantomjs.binary.path", "src/main/resources/phantomjs.exe");
             driver = new PhantomJSDriver();
             break;*/
+        case "chrome-headless":
+            if(systemOs.contains("windows") && systemOs != null) {
+                // include Windows specific webdriver instructions
+                System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
+            } else if (systemOs.contains("mac") && systemOs != null) {
+                // include MacOS specific webdriver instructions
+                System.setProperty("webdriver.chrome.driver", "src/main/resources/");
+            } else if (systemOs.contains("linux") && systemOs != null) {
+                // include Linux specific webdriver instructions
+                System.setProperty("webdriver.chrome.driver", "src/main/resources/");
+            }            
+            chromeOptions = new ChromeOptions();
+            chromeOptions.addArguments("disable-infobars");
+            chromeOptions.setExperimentalOption("useAutomationExtension", false);
+            System.out.println("MAXIMIZING CHROME HEADLESS NOW");
+            chromeOptions.addArguments("--start-maximized"); 
+            // start-maximized is currently not working in Chrome Headless
+            chromeOptions.setHeadless(true);
+            driver = new ChromeDriver(chromeOptions);
+            // workaround for --start-maximized bug which does not work on Chrome Headless atm
+            driver.manage().window().setSize(new Dimension(1024,800));
+            break;
+        case "firefox-headless":
+            if(systemOs.contains("windows") && systemOs != null) {
+                // include Windows specific webdriver instructions
+                System.setProperty("webdriver.gecko.driver", "src/main/resources/geckodriver.exe");
+            } else if (systemOs.contains("mac") && systemOs != null) {
+                // include MacOS specific webdriver instructions
+                System.setProperty("webdriver.gecko.driver", "src/main/resources/");
+            } else if (systemOs.contains("linux") && systemOs != null) {
+                // include Linux specific webdriver instructions
+                System.setProperty("webdriver.gecko.driver", "src/main/resources/"); 
+            }
+            // to clean up console from firefox logs:
+            /*System.setProperty(FirefoxDriver.SystemProperty.DRIVER_USE_MARIONETTE,"true");
+            System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE,"C:\\temp\\logs.txt");*/
+            FirefoxOptions firefoxOptions = new FirefoxOptions();
+            firefoxOptions.setHeadless(true);
+            driver = new FirefoxDriver(firefoxOptions);
+            driver.manage().window().maximize(); // remove if not needed
+            break;
         default:
             // default currently uses Chrome
             if(systemOs.contains("windows") && systemOs != null) {
