@@ -87,7 +87,7 @@ public class BrowserFactory {
             chromeOptions = new ChromeOptions();
             chromeOptions.addArguments("disable-infobars");
             chromeOptions.setExperimentalOption("useAutomationExtension", false);
-            System.out.println("MAXIMIZING CHROME HEADLESS NOW");
+            //System.out.println("MAXIMIZING CHROME HEADLESS NOW");
             chromeOptions.addArguments("--start-maximized"); 
             // start-maximized is currently not working in Chrome Headless
             chromeOptions.setHeadless(true);
